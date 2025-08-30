@@ -31,11 +31,11 @@
         </div>
 
         <!-- Sign in -->
-        <h2 class="font-bold text-4xl mt-[20px]">Sign in</h2>
-        <h4 class="text-[16px] mt-[10px]">
+        <h2 class="font-bold text-4xl mt-[20px]">Admin Sign in</h2>
+        <!-- <h4 class="text-[16px] mt-[10px]">
           Don't have an account?
           <a class="text-indigo-600" routerLink="/session/register">Sign up</a>
-        </h4>
+        </h4> -->
 
         <div class="w-full content-center">
           <form [formGroup]="loginForm" (ngSubmit)="login()">
@@ -69,6 +69,10 @@
                   {{ showError("password", "Password", "Provide") }}
                 </mat-hint>
               </mat-form-field>
+
+              <div class="forgot-password flex justify-end text-blue-500 cursor-pointer hover:text-blue-800">
+                <a routerLink="/forgot-password" >Forgot Password</a>
+              </div>
 
               <!-- Submit -->
               <div class="flex justify-center mt-5">
