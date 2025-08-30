@@ -1,0 +1,31 @@
+mat-drawer {
+  width: 15%;
+  border-radius: 0px;
+  margin: 0;
+  border: 0;
+}
+
+mat-toolbar {
+  /* position: fixed; */
+  background: #6267a9;
+}
+
+.active-link {
+  background-color: white;
+  color: #6267a9;
+  border-radius: 10px;
+}
+
+/* make sure the <a> and <mat-icon> inside also change color */
+.active-link a,
+.active-link mat-icon {
+  color: #6267a9 !important;
+  font-weight: 600;
+}
+
+.right-drawer {
+  width: 400px !important;
+  overflow-y: auto;
+  background-color: white;
+  padding: 16px;
+}

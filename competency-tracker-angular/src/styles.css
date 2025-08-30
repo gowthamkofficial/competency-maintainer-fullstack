@@ -1,0 +1,63 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;800;900&display=swap");
+@import "tailwindcss";
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.mdc-text-field--outlined .mat-mdc-notch-piece.mdc-notched-outline__notch {
+  border-right: 0 !important;
+}
+
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: transparent !important;
+}
+
+.mat-mdc-form-field-focus-overlay {
+  background-color: transparent !important;
+}
+
+.my-swal-toast {
+  width: 600px !important; 
+  min-height: 80px !important; 
+  padding: 1rem !important;
+  font-size: 14px;
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+}
+
+.error{
+  color: red;
+}
+
+.nav-item {
+  font-size: 1rem;
+  padding: 10px 15px;
+  margin-top: 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-item:hover {
+  background-color: white;
+  color: #6267a9 !important;
+}
+
+.active-link {
+  background-color: white;
+  color: #6267a9 !important;
+}

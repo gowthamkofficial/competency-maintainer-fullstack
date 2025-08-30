@@ -1,0 +1,74 @@
+<mat-drawer-container class="w-full h-screen" autosize="">
+  <mat-drawer mode="side" opened>
+    <div
+      class="drawer w-full h-full bg-[#6267a9] flex flex-col justify-between px-[5px]"
+    >
+      <div class="top-section">
+        <div class="logo flex px-[20px] items-center py-[20px]">
+          <img
+            class="w-[50px] h-[50px]"
+            src="assets/images/gk-logo-img.png"
+            alt="logo"
+          />
+          <h2 class="text-3xl ml-3 text-white">BLOGS</h2>
+        </div>
+
+        <div class="link-list">
+          <ul>
+            <li
+              *ngFor="let item of menuItems"
+              routerLinkActive="active-link"
+              [routerLinkActiveOptions]="{ exact: true }"
+              class="text-[1rem] px-[15px] py-[10px] text-white mt-[20px] hover:bg-white hover:text-[#6267a9] hover:rounded-[10px] flex items-center gap-2"
+            >
+              <mat-icon>{{ item.icon }}</mat-icon>
+              <a [routerLink]="item.route">{{ item.label }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bottom-section pb-[50px]">
+        <ul>
+          <li
+            (click)="logout()"
+            class="text-[1rem] px-[15px] py-[10px] text-white mt-[20px] hover:bg-white hover:text-[#6267a9] flex items-center gap-2 cursor-pointer"
+          >
+            <mat-icon>logout</mat-icon>
+            <span>Logout</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </mat-drawer>
+
+  <mat-drawer
+    autoFocus="false"
+    #rightDrawer
+    position="end"
+    mode="over"
+    class="right-drawer w-[600px] overflow-y-auto bg-white p-4"
+  >
+<!-- Place Components Here -->
+  </mat-drawer>
+  <mat-drawer-content>
+    <div class="sticky top-0 z-50">
+      <mat-toolbar
+        class="border-l-1 border-white rounded-[8px] flex items-center justify-end"
+      >
+        <span class="flex gap-x-5 items-center text-[1rem] text-white uppercase"
+          >{{ userData?.firstName }} {{ userData?.lastName
+          }}<img
+            [src]="getImageURI(userData?.profileImageUrl)"
+            class="w-10 h-10 rounded-full"
+            alt=""
+            srcset=""
+        /></span>
+      </mat-toolbar>
+    </div>
+
+    <div class="main-content px-10">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

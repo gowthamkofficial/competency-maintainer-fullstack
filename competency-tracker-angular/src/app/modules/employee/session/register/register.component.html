@@ -1,0 +1,135 @@
+<section class="w-full h-screen">
+  <div class="w-full grid grid-cols-3 h-full">
+    <!-- Left Content Section -->
+    <div
+      class="content-section col-span-2 bg-[#6b70b1] p-20 flex justify-start items-center"
+    >
+      <div class="content w-[70%]">
+        <div class="title text-[2.5rem] text-white font-extrabold">
+          Welcome to GK blogging
+        </div>
+        <h4 class="text-[1.2rem] text-white mt-10">
+          Create, share, and discover powerful content with our intuitive
+          blogging platform. Whether you're sharing the latest news, writing
+          thoughtful articles, or exploring trending topics by category — your
+          voice matters. Collaborate with multiple users, post with ease, and
+          bring your ideas to life.
+        </h4>
+      </div>
+    </div>
+
+    <!-- Signup Form Section -->
+    <div class="">
+      <div class="py-[20px] px-[50px]">
+        <!-- Logo -->
+        <div class="logo w-[80px] h-[80px] mt-[10px] p-2">
+          <img src="assets/images/gk-logo-img.png" class="w-full" alt="" />
+        </div>
+
+        <h2 class="font-bold text-4xl mt-[20px]">Sign up</h2>
+        <h4 class="text-[16px] mt-[10px]">
+          Already have an account?
+          <a class="text-indigo-600" routerLink="/session/login">Sign in</a>
+        </h4>
+
+        <!-- Form -->
+        <form [formGroup]="signupForm" (ngSubmit)="signup()" class="form-section flex flex-col mt-[20px]">
+          <!-- First & Last Name -->
+          <div class="grid grid-cols-2 gap-2">
+            <mat-form-field appearance="outline" class="mt-2">
+              <mat-label>First Name</mat-label>
+              <input matInput formControlName="firstName" />
+              <mat-hint *ngIf="form['firstName'].invalid && (form['firstName'].touched || form['firstName'].dirty)" class="error">
+                {{ showError("firstName", "First Name", "Provide") }}
+              </mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="mt-2">
+              <mat-label>Last Name</mat-label>
+              <input matInput formControlName="lastName" />
+              <mat-hint *ngIf="form['lastName'].invalid && (form['lastName'].touched || form['lastName'].dirty)" class="error">
+                {{ showError("lastName", "Last Name", "Provide") }}
+              </mat-hint>
+            </mat-form-field>
+          </div>
+
+          <!-- Mobile & Email -->
+          <div class="grid grid-cols-2 gap-2">
+            <mat-form-field appearance="outline" class="mt-2">
+              <mat-label>Mobile Number</mat-label>
+              <input matInput formControlName="mobile" />
+              <mat-hint *ngIf="form['mobile'].invalid && (form['mobile'].touched || form['mobile'].dirty)" class="error">
+                {{ showError("mobile", "Mobile Number", "Provide") }}
+              </mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="mt-2">
+              <mat-label>Email Address</mat-label>
+              <input matInput formControlName="email" />
+              <mat-hint *ngIf="form['email'].invalid && (form['email'].touched || form['email'].dirty)" class="error">
+                {{ showError("email", "Email", "Provide") }}
+              </mat-hint>
+            </mat-form-field>
+          </div>
+
+          <!-- Address -->
+          <div class="grid grid-cols-1">
+            <mat-form-field appearance="outline" class="mt-2">
+              <mat-label>Address</mat-label>
+              <textarea matInput formControlName="address" placeholder="Address"></textarea>
+              <mat-hint *ngIf="form['address'].invalid && (form['address'].touched || form['address'].dirty)" class="error">
+                {{ showError("address", "Address", "Provide") }}
+              </mat-hint>
+            </mat-form-field>
+          </div>
+
+          <!-- State & District -->
+          <div class="grid grid-cols-2 gap-2">
+            <mat-form-field appearance="outline" class="mt-2">
+              <mat-label>State</mat-label>
+              <input matInput formControlName="state" />
+              <mat-hint *ngIf="form['state'].invalid && (form['state'].touched || form['state'].dirty)" class="error">
+                {{ showError("state", "State", "Select") }}
+              </mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="mt-2">
+              <mat-label>District</mat-label>
+              <input matInput formControlName="district" />
+              <mat-hint *ngIf="form['district'].invalid && (form['district'].touched || form['district'].dirty)" class="error">
+                {{ showError("district", "District", "Select") }}
+              </mat-hint>
+            </mat-form-field>
+          </div>
+
+          <!-- Pincode & Password -->
+          <div class="grid grid-cols-2 gap-2">
+            <mat-form-field appearance="outline" class="mt-2">
+              <mat-label>Pincode</mat-label>
+              <input matInput formControlName="pincode" />
+              <mat-hint *ngIf="form['pincode'].invalid && (form['pincode'].touched || form['pincode'].dirty)" class="error">
+                {{ showError("pincode", "Pincode", "Provide") }}
+              </mat-hint>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="mt-2">
+              <mat-label>Password</mat-label>
+              <input matInput formControlName="password" type="password" />
+              <mat-hint *ngIf="form['password'].invalid && (form['password'].touched || form['password'].dirty)" class="error">
+                {{ showError("password", "Password", "Provide") }}
+              </mat-hint>
+            </mat-form-field>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="flex justify-center mt-10">
+            <button type="submit"
+              class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-full w-[100%]">
+              Sign up
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
