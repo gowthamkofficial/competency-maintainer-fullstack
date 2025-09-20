@@ -57,6 +57,9 @@ public class UserService {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
+	@Autowired
+	private EmailService emailService;
+	
     @Value("${file.profile-dir}")
     private String profileDir;
 	
@@ -100,6 +103,17 @@ public class UserService {
 	    String empcode = String.format("EMP%04d", saved.getId());
 	    saved.setEmpcode(empcode);
 	    saved = userRepo.save(saved);
+	    
+	    try {
+	        emailService.sendRegistrationEmail(
+	            user.getEmail(),
+	            user.getFirstName(),
+	            user.getEmail(),
+	            dto.getPassword() 
+	        );
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
 
 	    return new ApiResponse<>(ResponseStatus.Success,
 	            "User created successfully",

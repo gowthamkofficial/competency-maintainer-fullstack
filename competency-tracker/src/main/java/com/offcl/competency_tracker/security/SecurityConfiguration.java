@@ -54,9 +54,9 @@ public class SecurityConfiguration {
                  .requestMatchers(HttpMethod.POST,"/api/v1/quarter/**").hasAnyRole("admin","manager")
                  .requestMatchers(HttpMethod.PUT,"/api/v1/quarter/**").hasAnyRole("admin","manager")
                  .requestMatchers(HttpMethod.POST, "/api/v1/users/createUser")
-                 .hasAnyRole("ADMIN", "MANAGER")
+                 .hasAnyRole("admin", "manager")
              .requestMatchers(HttpMethod.PUT, "/api/v1/users/updateUser")
-                 .hasAnyRole("ADMIN", "MANAGER")
+                 .hasAnyRole("admin", "manager")
                 .anyRequest().authenticated()
             )
             .exceptionHandling(ex -> ex
