@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.offcl.competency_tracker.common.enums.QuarterStatus;
 
 import jakarta.persistence.CascadeType;
@@ -17,12 +18,15 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Data
 public class Quarter extends BaseEntity {
 
 	
@@ -45,8 +49,8 @@ public class Quarter extends BaseEntity {
 	@Enumerated(EnumType.STRING)
 	private QuarterStatus status;
 	
+	@JsonIgnore()
 	@OneToMany(mappedBy = "quarter",cascade = CascadeType.ALL)
 	List<Course> courses =  new ArrayList<Course>();
-	
-	
+		
 }

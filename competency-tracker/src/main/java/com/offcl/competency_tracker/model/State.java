@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class State extends BaseEntity{
+public class State {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
