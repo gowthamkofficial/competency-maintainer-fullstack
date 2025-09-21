@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { MatDrawer } from '@angular/material/sidenav';
 import Swal from 'sweetalert2';
@@ -12,35 +12,18 @@ import { SharedModule } from '../../shared/shared.module';
   selector: 'app-main-layout',
   imports: [CommonModule, RouterModule, SharedModule],
   templateUrl: './main-layout.component.html',
-  styleUrl: './main-layout.component.css',
+  styleUrls: ['./main-layout.component.css'],
 })
-export class MainLayoutComponent {
+export class MainLayoutComponent implements OnInit {
   userData: any;
-
-  menuItems = [
-    {
-      label: 'Home',
-      icon: 'home',
-      route: '/blogs/list',
-    },
-    {
-      label: 'My Blogs',
-      icon: 'article',
-      route: '/my-blogs',
-    },
-    {
-      label: 'My Profile',
-      icon: 'person',
-      route: '/my-profile',
-    },
-  ];
+  menuItems: any[] = [];
   @ViewChild('rightDrawer') rightDrawer!: MatDrawer;
+
   constructor(public drawerService: DrawerService, private router: Router) {
     const storeUser: string | null = sessionStorage.getItem('SESSION_USER');
-    const userData: any = storeUser
+    this.userData = storeUser
       ? JSON.parse(storeUser)
       : { firstName: 'Gowtham', lastName: 'K' };
-    this.userData = userData;
 
     this.drawerService.drawer$.subscribe({
       next: (comp: String | null) => {
@@ -51,6 +34,35 @@ export class MainLayoutComponent {
         }
       },
     });
+  }
+
+  ngOnInit() {
+    this.setMenuItems(this.router.url);
+
+    // Optional: update menu when route changes
+    this.router.events.subscribe(() => {
+      this.setMenuItems(this.router.url);
+    });
+  }
+
+  setMenuItems(url: string) {
+    if (url.startsWith('/employee/')) {
+      this.menuItems = [
+        { label: 'Dashboard', icon: 'dashboard', route: '/employee/dashboard' },
+        { label: 'Quarters', icon: 'calendar_view_month', route: '/employee/quarters' },
+        { label: 'Courses', icon: 'menu_book', route: '/employee/courses' },
+        { label: 'My Profile', icon: 'person', route: '/employee/my-profile' },
+      ];
+    } else {
+      this.menuItems = [
+        { label: 'Dashboard', icon: 'dashboard', route: '/dashboard' },
+        { label: 'Users', icon: 'group', route: '/users' },
+        { label: 'Quarters', icon: 'calendar_view_month', route: '/quarters' },
+        { label: 'Courses', icon: 'menu_book', route: '/courses' },
+        { label: 'Role', icon: 'admin_panel_settings', route: '/role' },
+        { label: 'Department', icon: 'apartment', route: '/department' },
+      ];
+    }
   }
 
   getImageURI(uri: string) {
