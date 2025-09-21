@@ -39,7 +39,7 @@ public class EmailService {
         helper.setText(htmlContent, true);
         helper.setTo(to);
         helper.setSubject("Welcome to Competency Management System");
-        helper.setFrom("yourmail@gmail.com");
+        helper.setFrom("gowthamk.techzone@gmail.com");
 
         mailSender.send(mimeMessage);
     }
