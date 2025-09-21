@@ -20,6 +20,12 @@ const routes: Routes = [
           import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
       },
       {
+        path: 'user',
+        loadChildren: () =>
+          import('./users/users.module').then((m) => m.UsersModule),
+      },
+
+      {
         path: '',
         redirectTo: 'dashboard',
         pathMatch: 'full',
