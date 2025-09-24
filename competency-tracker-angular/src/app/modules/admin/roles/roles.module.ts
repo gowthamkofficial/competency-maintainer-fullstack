@@ -5,6 +5,7 @@ import { RolesRoutingModule } from './roles-routing.module';
 import { RoleCreateComponent } from './role-create/role-create.component';
 import { RoleListComponent } from './role-list/role-list.component';
 import { RoleUpdateComponent } from './role-update/role-update.component';
+import { SharedModule } from '../../../shared/shared.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { RoleUpdateComponent } from './role-update/role-update.component';
   ],
   imports: [
     CommonModule,
-    RolesRoutingModule
+    RolesRoutingModule,
+    SharedModule
   ]
 })
 export class RolesModule { }

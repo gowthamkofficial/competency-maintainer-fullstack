@@ -1,1 +1,56 @@
-<p>department-list works!</p>
+<div class="px-4 sm:px-6 lg:px-8">
+  <!-- Header -->
+  <div class="sm:flex sm:items-center sm:justify-between">
+    <div class="sm:flex-auto">
+      <h1 class="text-base font-semibold text-gray-900 dark:text-white">Departments</h1>
+      <p class="mt-2 text-sm text-gray-700 dark:text-gray-300">
+        A list of all departments in the organization.
+      </p>
+    </div>
+
+    <!-- Add Department Button -->
+    <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
+      <button type="button"
+        class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs 
+               hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600
+               dark:bg-indigo-500 dark:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500">
+        Add Department
+      </button>
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="mt-8 flow-root">
+    <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+        <table class="relative min-w-full divide-y divide-gray-300 dark:divide-white/15">
+          <thead>
+            <tr>
+              <th class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0 dark:text-white">Department</th>
+              <th class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-white">Created On</th>
+              <th class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-white">Updated On</th>
+              <th class="py-3.5 pr-4 pl-3 sm:pr-0"><span class="sr-only">Edit</span></th>
+            </tr>
+          </thead>
+
+          <tbody class="divide-y divide-gray-200 bg-white dark:divide-white/10 dark:bg-gray-900">
+            <!-- Loop departments -->
+            <tr *ngFor="let dept of departments">
+              <td class="py-5 pr-3 pl-4 text-sm font-medium text-gray-900 whitespace-nowrap sm:pl-0 dark:text-white">
+                {{ dept.departmentName }}
+              </td>
+              <td class="px-3 py-5 text-sm text-gray-500 dark:text-gray-400">{{ dept.createdOn | date:'medium' }}</td>
+              <td class="px-3 py-5 text-sm text-gray-500 dark:text-gray-400">{{ dept.updatedOn | date:'medium' }}</td>
+              <td class="py-5 pr-4 pl-3 text-right text-sm font-medium whitespace-nowrap sm:pr-0">
+                <a href="#"
+                   class="text-indigo-600 hover:text-indigo-900 dark:text-indigo-400 dark:hover:text-indigo-300">
+                  Edit<span class="sr-only">, {{ dept.departmentName }}</span>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

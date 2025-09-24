@@ -1,1 +1,106 @@
-<p>user-create works!</p>
+<form class="grid grid-cols-2 gap-6 p-6">
+
+  <!-- First Name -->
+  <div>
+    <label for="firstName" class="block text-sm font-medium text-gray-900 dark:text-white">First Name</label>
+    <input id="firstName" name="firstName" type="text" placeholder="John"
+      class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-white/5 dark:text-white" />
+  </div>
+
+  <!-- Last Name -->
+  <div>
+    <label for="lastName" class="block text-sm font-medium text-gray-900 dark:text-white">Last Name</label>
+    <input id="lastName" name="lastName" type="text" placeholder="Doe"
+      class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-white/5 dark:text-white" />
+  </div>
+
+  <!-- Email -->
+  <div>
+    <label for="email" class="block text-sm font-medium text-gray-900 dark:text-white">Email</label>
+    <input id="email" name="email" type="email" placeholder="john.doe@example.com"
+      class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-white/5 dark:text-white" />
+  </div>
+
+  <!-- Mobile Number -->
+  <div>
+    <label for="mobileNumber" class="block text-sm font-medium text-gray-900 dark:text-white">Mobile Number</label>
+    <input id="mobileNumber" name="mobileNumber" type="tel" placeholder="+1 555-123-4567"
+      class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-white/5 dark:text-white" />
+  </div>
+
+  <!-- Date of Joining -->
+  <div>
+    <label for="dateOfJoining" class="block text-sm font-medium text-gray-900 dark:text-white">Date of Joining</label>
+    <input id="dateOfJoining" name="dateOfJoining" type="date"
+      class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-white/5 dark:text-white" />
+  </div>
+
+  <!-- Password -->
+  <div>
+    <label for="password" class="block text-sm font-medium text-gray-900 dark:text-white">Password</label>
+    <input id="password" name="password" type="password" placeholder="••••••••"
+      class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-white/5 dark:text-white" />
+  </div>
+
+  <!-- Address Line 1 -->
+  <div>
+    <label for="addressLine1" class="block text-sm font-medium text-gray-900 dark:text-white">Address Line 1</label>
+    <input id="addressLine1" name="addressLine1" type="text" placeholder="123 Main St"
+      class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-white/5 dark:text-white" />
+  </div>
+
+  <!-- Address Line 2 -->
+  <div>
+    <label for="addressLine2" class="block text-sm font-medium text-gray-900 dark:text-white">Address Line 2</label>
+    <input id="addressLine2" name="addressLine2" type="text" placeholder="Apt 4B"
+      class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-white/5 dark:text-white" />
+  </div>
+
+  <!-- State -->
+  <div>
+    <label for="stateId" class="block text-sm font-medium text-gray-900 dark:text-white">State</label>
+    <select id="stateId" name="stateId" class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-white/5 dark:text-white">
+      <option value="0">Select State</option>
+    </select>
+  </div>
+
+  <!-- District -->
+  <div>
+    <label for="districtId" class="block text-sm font-medium text-gray-900 dark:text-white">District</label>
+    <select id="districtId" name="districtId" class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-white/5 dark:text-white">
+      <option value="0">Select District</option>
+    </select>
+  </div>
+
+  <!-- Role -->
+  <div>
+    <label for="roleId" class="block text-sm font-medium text-gray-900 dark:text-white">Role</label>
+    <select id="roleId" name="roleId" class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-white/5 dark:text-white">
+      <option value="0">Select Role</option>
+    </select>
+  </div>
+
+  <!-- Department -->
+  <div>
+    <label for="departmentId" class="block text-sm font-medium text-gray-900 dark:text-white">Department</label>
+    <select id="departmentId" name="departmentId" class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-white/5 dark:text-white">
+      <option value="0">Select Department</option>
+    </select>
+  </div>
+
+
+  <!-- Buttons -->
+<div class="col-span-2">
+  <label for="profileImageId" class="block text-sm font-medium text-gray-900 dark:text-white">Profile Image</label>
+  <div class="mt-1 flex items-center gap-4">
+    <!-- Image Preview -->
+    <img id="avatarPreview" src="https://i.pravatar.cc/150?img=3" alt="Avatar" class="h-20 w-20 rounded-full object-cover border border-gray-300 dark:border-white/10" />
+
+    <!-- File Input -->
+    <input id="profileImageId" name="profileImageId" type="file" accept="image/*"
+      class="block text-sm text-gray-900 dark:text-white"
+      onchange="previewAvatar(event)" />
+  </div>
+</div>
+
+</form>

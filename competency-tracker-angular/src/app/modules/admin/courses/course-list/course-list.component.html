@@ -1,1 +1,45 @@
-<p>course-list works!</p>
+<div class="px-4 sm:px-6 lg:px-8">
+  <div class="sm:flex sm:items-center sm:justify-between">
+    <h1 class="text-base font-semibold text-gray-900 dark:text-white">Courses</h1>
+    <button class="mt-4 sm:mt-0 inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600 dark:bg-indigo-500 dark:hover:bg-indigo-400 dark:focus:ring-indigo-500">
+      Add Course
+    </button>
+  </div>
+
+  <div class="mt-8 overflow-x-auto">
+    <div class="inline-block min-w-full align-middle">
+      <table class="min-w-full divide-y divide-gray-300 dark:divide-white/20">
+        <thead>
+          <tr>
+            <th class="px-3 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white">Course Name</th>
+            <th class="px-3 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white">Duration (hrs)</th>
+            <th class="px-3 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white">Level</th>
+            <th class="px-3 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white">Status</th>
+            <th class="px-3 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white">Paid</th>
+            <th class="px-3 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white">User</th>
+            <th class="px-3 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white">Quarter</th>
+            <th class="px-3 py-3 text-left text-sm font-semibold text-gray-900 dark:text-white">Certificate</th>
+            <th class="px-3 py-3 text-right text-sm font-semibold text-gray-900 dark:text-white">Actions</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200 dark:divide-white/10 bg-white dark:bg-gray-900">
+          <tr *ngFor="let course of courses">
+            <td class="px-3 py-4 text-sm text-gray-900 dark:text-white">{{ course.courseName }}</td>
+            <td class="px-3 py-4 text-sm text-gray-500 dark:text-gray-300">{{ course.courseDurationInHours }}</td>
+            <td class="px-3 py-4 text-sm text-gray-500 dark:text-gray-300">{{ course.level }}</td>
+            <td class="px-3 py-4 text-sm text-gray-500 dark:text-gray-300">{{ course.status }}</td>
+            <td class="px-3 py-4 text-sm text-gray-500 dark:text-gray-300">{{ course.paidCourse ? 'Yes' : 'No' }}</td>
+            <td class="px-3 py-4 text-sm text-gray-500 dark:text-gray-300">{{ course.userName }}</td>
+            <td class="px-3 py-4 text-sm text-gray-500 dark:text-gray-300">{{ course.quarterName }}</td>
+            <td class="px-3 py-4 text-sm text-indigo-600 dark:text-indigo-400">
+              <a [href]="course.certificateDownloadUrl" class="hover:underline">{{ course.certificateName }}</a>
+            </td>
+            <td class="px-3 py-4 text-right text-sm font-medium">
+              <a href="#" class="text-indigo-600 hover:text-indigo-900 dark:text-indigo-400 dark:hover:text-indigo-300">Edit</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
