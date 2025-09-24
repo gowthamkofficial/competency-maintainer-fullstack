@@ -10,5 +10,5 @@ import { SharedModule } from './shared/shared.module';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'angular-admin-template';
+  title = 'Competency Tracker';
 }
