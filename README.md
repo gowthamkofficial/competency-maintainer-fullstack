@@ -1,8 +1,2 @@
 ﻿# competency-maintainer-fullstack
 
-
-<img width="1896" height="934" alt="image" src="https://github.com/user-attachments/assets/1f61a69f-9f63-46c7-b2af-936c33578b06" />
-
-
-<img width="1919" height="934" alt="image" src="https://github.com/user-attachments/assets/e4e9314e-0b1b-4de6-92d8-99ae40346bbb" />
-
