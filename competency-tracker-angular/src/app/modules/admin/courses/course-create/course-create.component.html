@@ -1,1 +1,106 @@
-<p>course-create works!</p>
+<form class="grid grid-cols-2 gap-6 p-6">
+
+  <!-- Course Name -->
+  <div>
+    <label for="courseName" class="block text-sm font-medium text-gray-900 dark:text-white">Course Name</label>
+    <input id="courseName" name="courseName" type="text" placeholder="Course Name"
+      class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-white/5 dark:text-white" />
+  </div>
+
+  <!-- Course Duration -->
+  <div>
+    <label for="courseDurationInHours" class="block text-sm font-medium text-gray-900 dark:text-white">Duration (hrs)</label>
+    <input id="courseDurationInHours" name="courseDurationInHours" type="number" placeholder="0"
+      class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-white/5 dark:text-white" />
+  </div>
+
+  <!-- Paid Course -->
+  <div class="flex items-center mt-6">
+    <input id="paidCourse" name="paidCourse" type="checkbox"
+      class="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500" />
+    <label for="paidCourse" class="ml-2 block text-sm font-medium text-gray-900 dark:text-white">Paid Course?</label>
+  </div>
+
+  <!-- Amount Paid -->
+  <div>
+    <label for="amountPaid" class="block text-sm font-medium text-gray-900 dark:text-white">Amount Paid</label>
+    <input id="amountPaid" name="amountPaid" type="number" step="0.01" placeholder="0.00"
+      class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-white/5 dark:text-white" />
+  </div>
+
+  <!-- Status -->
+  <div>
+    <label for="status" class="block text-sm font-medium text-gray-900 dark:text-white">Status</label>
+    <select id="status" name="status"
+      class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-white/5 dark:text-white">
+      <option>NOT_YET_STARTED</option>
+      <option>IN_PROGRESS</option>
+      <option>COMPLETED</option>
+    </select>
+  </div>
+
+  <!-- Level -->
+  <div>
+    <label for="level" class="block text-sm font-medium text-gray-900 dark:text-white">Level</label>
+    <select id="level" name="level"
+      class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-white/5 dark:text-white">
+      <option>BEGINNER</option>
+      <option>INTERMEDIATE</option>
+      <option>ADVANCED</option>
+    </select>
+  </div>
+
+  <!-- Course Description -->
+  <div class="col-span-2">
+    <label for="courseDescription" class="block text-sm font-medium text-gray-900 dark:text-white">Description</label>
+    <textarea id="courseDescription" name="courseDescription" rows="3"
+      class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-white/5 dark:text-white"></textarea>
+  </div>
+
+  <!-- Course Start Date -->
+  <div>
+    <label for="courseStartedOn" class="block text-sm font-medium text-gray-900 dark:text-white">Start Date</label>
+    <input id="courseStartedOn" name="courseStartedOn" type="date"
+      class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-white/5 dark:text-white" />
+  </div>
+
+  <!-- Course Completed Date -->
+  <div>
+    <label for="courseCompletedOn" class="block text-sm font-medium text-gray-900 dark:text-white">End Date</label>
+    <input id="courseCompletedOn" name="courseCompletedOn" type="date"
+      class="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-indigo-500 focus:ring-indigo-500 dark:bg-white/5 dark:text-white" />
+  </div>
+
+  <!-- Certificate Upload -->
+  <div class="col-span-2">
+    <label for="certificateId" class="block text-sm font-medium text-gray-900 dark:text-white">Certificate</label>
+    <div class="mt-1 flex items-center gap-4">
+      <!-- Preview -->
+      <img id="certificatePreview" src="https://via.placeholder.com/100" alt="Certificate"
+        class="h-24 w-24 rounded-md object-cover border border-gray-300 dark:border-white/10" />
+
+      <!-- File Input -->
+      <input id="certificateId" name="certificateId" type="file" accept="image/*"
+        class="block text-sm text-gray-900 dark:text-white" onchange="previewCertificate(event)" />
+    </div>
+  </div>
+
+  <!-- Buttons -->
+  <div class="col-span-2 flex justify-end gap-4 mt-4">
+    <button type="button"
+      class="px-4 py-2 rounded-md border border-gray-300 text-gray-900 dark:text-white">Cancel</button>
+    <button type="submit"
+      class="px-4 py-2 rounded-md bg-indigo-600 text-white hover:bg-indigo-500">Save</button>
+  </div>
+</form>
+
+<script>
+  function previewCertificate(event) {
+    const reader = new FileReader();
+    reader.onload = function () {
+      const output = document.getElementById('certificatePreview');
+      output.src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  }
+</script>

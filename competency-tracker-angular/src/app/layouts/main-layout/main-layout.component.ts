@@ -59,8 +59,8 @@ export class MainLayoutComponent implements OnInit {
         { label: 'Users', icon: 'group', route: '/users' },
         { label: 'Quarters', icon: 'calendar_view_month', route: '/quarters' },
         { label: 'Courses', icon: 'menu_book', route: '/courses' },
-        { label: 'Role', icon: 'admin_panel_settings', route: '/role' },
-        { label: 'Department', icon: 'apartment', route: '/department' },
+        { label: 'Role', icon: 'admin_panel_settings', route: '/roles' },
+        { label: 'Department', icon: 'apartment', route: '/departments' },
       ];
     }
   }

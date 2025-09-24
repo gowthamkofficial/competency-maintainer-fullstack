@@ -1,1 +1,71 @@
-<p>user-list works!</p>
+<div class="px-4 py-8 sm:px-6 lg:px-8">
+  <!-- Header -->
+  <div class="sm:flex sm:items-center">
+    <div class="sm:flex-auto">
+      <h1 class="text-base font-semibold text-gray-900 dark:text-white">Employees</h1>
+    </div>
+    <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
+      <button type="button"
+        class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-xs 
+               hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600
+               dark:bg-indigo-500 dark:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500">
+        Add Employee
+      </button>
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="mt-8 flow-root">
+    <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+        <table class="relative min-w-full divide-y divide-gray-300 dark:divide-white/15">
+          <thead>
+            <tr>
+              <th class="py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-gray-900 sm:pl-0 dark:text-white">Employee</th>
+              <th class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-white">Code</th>
+              <th class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-white">Department</th>
+              <th class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-white">Role</th>
+              <th class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-white">Mobile</th>
+              <th class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 dark:text-white">Joined On</th>
+              <th class="py-3.5 pr-4 pl-3 sm:pr-0"><span class="sr-only">Edit</span></th>
+            </tr>
+          </thead>
+
+          <tbody class="divide-y divide-gray-200 bg-white dark:divide-white/10 dark:bg-gray-900">
+            <!-- Loop Employees -->
+            <tr *ngFor="let employee of employees">
+              <td class="py-5 pr-3 pl-4 text-sm whitespace-nowrap sm:pl-0">
+                <div class="flex items-center">
+                  <!-- <div class="size-11 shrink-0">
+                    <img [src]="employee.profileImagePath || 'https://via.placeholder.com/48'"
+                         alt="Profile"
+                         class="size-11 rounded-full dark:outline dark:outline-white/10" />
+                  </div> -->
+                  <div class="ml-4">
+                    <div class="font-medium text-gray-900 dark:text-white">
+                      {{ employee.firstName }} {{ employee.lastName }}
+                    </div>
+                    <div class="mt-1 text-gray-500 dark:text-gray-400">
+                      {{ employee.email }}
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td class="px-3 py-5 text-sm text-gray-500 dark:text-gray-400">{{ employee.empcode }}</td>
+              <td class="px-3 py-5 text-sm text-gray-500 dark:text-gray-400">{{ employee.departmentName }}</td>
+              <td class="px-3 py-5 text-sm text-gray-500 dark:text-gray-400">{{ employee.roleName }}</td>
+              <td class="px-3 py-5 text-sm text-gray-500 dark:text-gray-400">{{ employee.mobileNumber }}</td>
+              <td class="px-3 py-5 text-sm text-gray-500 dark:text-gray-400">{{ employee.dateOfJoining }}</td>
+              <td class="py-5 pr-4 pl-3 text-right pr-10 text-sm font-medium whitespace-nowrap sm:pr-5">
+                <a href="#" 
+                   class="text-indigo-600 hover:text-indigo-900 dark:text-indigo-400 dark:hover:text-indigo-300">
+                  Edit<span class="sr-only">, {{ employee.firstName }} {{ employee.lastName }}</span>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
